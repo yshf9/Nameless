@@ -194,7 +194,7 @@ $token = Token::generate();
 					'  </div>' . PHP_EOL .
 					'  <input type="hidden" name="token" value="' . $token . '">' . PHP_EOL .
 					'  <input type="submit" class="btn btn-primary" value="' . $general_language['submit'] . '">' . PHP_EOL .
-					'  <a class="btn btn-danger" href="/forum" onclick="return confirm(\'' . $forum_language['confirm_cancellation'] . '\')">' . $general_language['cancel'] . '</a>' . PHP_EOL . 
+					'  <a class="btn btn-danger" href="#Cancel" data-toggle="modal" data-target="#Cancel">' . $general_language['cancel'] . '</a>' . PHP_EOL . 
 					'</form>';
 	$smarty->assign('FORM_CONTENT', $form_content);
 	
@@ -225,5 +225,16 @@ $token = Token::generate();
 			removeButtons: 'Anchor,Styles,Specialchar,Font,About,Flash,Iframe'
 		} );
 	</script>
+	 <div class="modal fade" id="Cancel" role="dialog">
+	  <div class="modal-dialog">
+	   <div class="modal-content">
+	    <div class="modal-body">
+	     <h3>Are you sure?</h3>
+	     <a style="width:49%" type="button" class="btn btn-success" onclick="$('#Cancel').modal('hide')">Don't Cancel Post</a>
+	     <a style="width:49%" href="/forum" type="button" class="btn btn-danger">Cancel Post</a>
+	    </div>
+   	   </div>
+	  </div>
+	 </div>
   </body>
 </html>
