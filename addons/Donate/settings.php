@@ -201,7 +201,18 @@ if(empty($donation_settings)){
 </form>
 <h3>Actions</h3>
 <a href="/admin/addons/?action=edit&amp;addon=Donate&amp;do=sync" class="btn btn-primary" data-toggle="popover" data-content="This will synchronise your website's Donate page with your donor store, displaying latest donors, packages and it will assign groups to users if set up in the Groups tab of the AdminCP.">Synchronise donor store</a>&nbsp;
-<a href="/admin/addons/?action=edit&amp;addon=Donate&amp;do=clear" onclick="return confirm('Are you sure you want to clear the cache?');" class="btn btn-warning" data-toggle="popover" data-content="Clearing the cache will empty your 'Latest Donors' list and also the package and category list.">Clear donation cache</a>
+<a href="#cleardonation" data-toggle="modal" data-target="#cleardonation" class="btn btn-warning">Clear donation cache</a>
+         <div class="modal fade" id="cleardonation" role="dialog">
+          <div class="modal-dialog">
+           <div class="modal-content">
+            <div class="modal-body">
+             <h3>Are you sure?</h3>
+             <a style="width:49%" type="button" class="btn btn-success" onclick="$('#cleardonation').modal('hide')">Don't Clear Cache</a>
+             <a style="width:49%" href="/admin/addons/?action=edit&amp;addon=Donate&amp;do=clear" type="button" class="btn btn-danger">Clear Cache</a>
+            </div>
+           </div>
+          </div>
+         </div>
 <?php
 }
 } else {
